@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/Liptonski/CLI_Web_Server/pkg/web"
+	"github.com/Liptonski/CLI_Web_Server/pkg/server"
 	"github.com/urfave/cli"
 )
 
@@ -25,8 +25,7 @@ func main() {
 				},
 			},
 			Action: func(c *cli.Context) error {
-				//fmt.Println("Hello")
-				web.Run_file()
+				server.Run_file()
 				return nil
 			},
 		},

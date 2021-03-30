@@ -2,14 +2,7 @@ package server
 
 import (
 	"net/http"
-	// "html/template"
 )
-
-// func (w http.ResponseWriter, r *http.Request) {
-// 	fmt.Println("Hello")
-// 	t, _ := template.ParseFiles("index.html")
-// 	t.Execute(w)
-// }
 
 var file string
 

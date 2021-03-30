@@ -18,7 +18,7 @@ func main() {
 	app.Commands = []cli.Command{
 		{
 			Name:  "run",
-			Usage: "runs specified html file on local server",
+			Usage: "Runs specified html file on local server",
 
 			Flags: []cli.Flag{
 				cli.StringFlag{
@@ -28,7 +28,7 @@ func main() {
 				},
 			},
 			Action: func(c *cli.Context) error {
-				file := c.Args().Get(0)
+				file := os.Args[3]
 				server.Run_file(file)
 				return nil
 			},
@@ -37,10 +37,11 @@ func main() {
 			Name:  "version",
 			Usage: "Installed version of cli",
 			Action: func(c *cli.Context) error {
-				fmt.Fprint(os.Stdout, app.Version)
+				fmt.Println(app.Version)
 				return nil
 			},
 		},
+		// help is already implemented
 	}
 	err := app.Run(os.Args)
 

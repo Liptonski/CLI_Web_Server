@@ -25,7 +25,8 @@ func main() {
 				},
 			},
 			Action: func(c *cli.Context) error {
-				server.Run_file()
+				file := c.Args().Get(0)
+				server.Run_file(file)
 				return nil
 			},
 		},

@@ -1,10 +1,10 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 
+	"github.com/Liptonski/CLI_Web_Server/pkg/web"
 	"github.com/urfave/cli"
 )
 
@@ -16,15 +16,17 @@ func main() {
 	app.Commands = []cli.Command{
 		{
 			Name:  "run",
-			Usage: "run --file <file_name>",
+			Usage: "runs specified html file on local server",
 
 			Flags: []cli.Flag{
 				cli.StringFlag{
-					Name: "file",
+					Name:  "file",
+					Usage: "specify file name as value",
 				},
 			},
 			Action: func(c *cli.Context) error {
-				fmt.Println("Hello")
+				//fmt.Println("Hello")
+				web.Run_file()
 				return nil
 			},
 		},

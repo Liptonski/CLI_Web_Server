@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -12,6 +13,7 @@ func main() {
 	app := cli.NewApp()
 	app.Name = "Web Server CLI"
 	app.Usage = "Runs html files on localhost"
+	app.Version = "1.0.0"
 
 	app.Commands = []cli.Command{
 		{
@@ -20,13 +22,22 @@ func main() {
 
 			Flags: []cli.Flag{
 				cli.StringFlag{
-					Name:  "file",
-					Usage: "specify file name as value",
+					Name:     "file",
+					Usage:    "specify file name as value",
+					Required: true,
 				},
 			},
 			Action: func(c *cli.Context) error {
 				file := c.Args().Get(0)
 				server.Run_file(file)
+				return nil
+			},
+		},
+		{
+			Name:  "version",
+			Usage: "Installed version of cli",
+			Action: func(c *cli.Context) error {
+				fmt.Fprint(os.Stdout, app.Version)
 				return nil
 			},
 		},
